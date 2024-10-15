@@ -1,8 +1,8 @@
-
 def solution(n):
-    num=set(range(2,n+1))
-
-    for i in range(2,n+1):
-        if i in num:
-            num-=set(range(i*i,n+1,i))
-    return len(num)
+    field = [1]*1000001
+    field[0] = field[1] = 0
+    for i in range(2,1001):
+        if field[i]:
+            for j in range(i*i,1000001,i):
+                field[j] = 0
+    return sum(field[:n+1])
