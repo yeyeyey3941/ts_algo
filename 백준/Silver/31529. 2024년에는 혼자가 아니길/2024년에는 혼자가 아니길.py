@@ -12,10 +12,11 @@ w = 1/4(a**2+b**2+2ab + c**2+d**2+2cd) = 1/4(2*x - y)
 산술 기하 평균(x,y>=0, x+y >= 2 * (x*y)**0.5)에 따라, a**2 + b**2 >= 2*(a*b) / c,d 도 마찬가지
 즉 x >= y-x, 2*x >= y,
 So, 2*x < y 는 불가능 : w = -1
+and x>y : -1
 
 2. w가 여러개인 케이스 -> 없음
 왜냐하면, w 는 x,y의 1차 방정식이라서
 '''
 
 x,y = map(int,input().split())
-print(-1 if 2*x <y else 506 * (2*x-y))
+print(-1 if (2*x<y or x>y) else 506 * (2*x-y))
