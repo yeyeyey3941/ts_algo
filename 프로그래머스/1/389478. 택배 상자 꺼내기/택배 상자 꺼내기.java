@@ -1,5 +1,16 @@
 class Solution {
     public int solution(int n, int w, int num) {
+        int w_floor = (int) (num-1)/w + 1;
+        int w_max = (int) (n-1)/w + 1;
+
+        int n_th = (n-1)%(2*w);int num_th = (num-1)%(2*w);
+
+        int alpha = ((int) (n_th)/w == (int) (num_th)/w ? (n_th%w >= num_th%w ? 0: 1) : (w < num_th%w + (n_th%w)+2) ? 0 : 1 );
+
+        return w_max-w_floor + 1 - alpha;
+    
+        
+        /* // 기존풀이
         int answer = 0;
         int MAX_HEIGHT = (int) n/w + 1;
         int[][] boxes = new int[MAX_HEIGHT][w];
@@ -43,5 +54,6 @@ class Solution {
 
         
         return answer;
+        */
     }
 }
